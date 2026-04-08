@@ -343,10 +343,28 @@ function renderWikiDetail() {
 function initScrollAnimations() {
   const elements = document.querySelectorAll('.tool-card, .case-card, .timeline-item, .service-card, .wiki-article-card');
 
-  elements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  // 检测元素是否已经在视口内
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+
+  elements.forEach((el, i) => {
+    if (isInViewport(el)) {
+      // 已经在视口内的元素：直接显示，带轻微延迟做依次入场效果
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      setTimeout(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }, i * 80);
+    } else {
+      // 不在视口内的元素：等滚动到了再显示
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    }
   });
 
   const observer = new IntersectionObserver((entries) => {

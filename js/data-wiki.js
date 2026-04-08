@@ -70,7 +70,7 @@ const wikiData = [
     category: "roadmap",
     categoryText: "学习路径",
     date: "2026-03-10",
-    desc: "如果你完全零基础，这份30天计划能帮你从"AI是什么"到"独立搭建智能体"。",
+    desc: "如果你完全零基础，这份30天计划能帮你从\u201cAI是什么\u201d到\u201c独立搭建智能体\u201d。",
     content: `
       <h2 id="week1">第1周：认识AI，破除恐惧</h2>
       <p>目标：理解AI能做什么、不能做什么，学会跟AI"说话"。</p>
