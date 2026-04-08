@@ -9,6 +9,13 @@
 </head>
 <body>
 
+  <!-- 浮动光斑背景 -->
+  <div class="floating-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
   <!-- 导航栏 -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -31,9 +38,14 @@
 
   <!-- Hero 首屏 -->
   <section class="hero" id="hero">
+    <!-- 粒子画布 -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-tag">不讲黑话的AI实战派</div>
+        <div class="hero-tag">
+          <span class="tag-dot"></span>
+          不讲黑话的AI实战派
+        </div>
         <h1 class="hero-title">
           不写代码<br>
           也能<span class="highlight">玩转AI</span>
@@ -43,7 +55,10 @@
           专注智能体搭建 · 工作流设计 · 企业AI内训
         </p>
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">免费咨询</a>
+          <a href="#contact" class="btn btn-primary">
+            <span>免费咨询</span>
+            <div class="btn-glow"></div>
+          </a>
           <a href="cases.html" class="btn btn-outline">查看案例 &rarr;</a>
         </div>
         <div class="hero-stats">
@@ -62,8 +77,23 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="assets/images/avatar.jpg" alt="元芷">
+        <div class="hero-image-decoration"></div>
+        <div class="hero-image-frame">
+          <img src="assets/images/avatar.jpg" alt="元芷">
+        </div>
+        <!-- 浮动装饰图标 -->
+        <div class="floating-icon fi-1">&#x1f916;</div>
+        <div class="floating-icon fi-2">&#x2728;</div>
+        <div class="floating-icon fi-3">&#x1f4a1;</div>
+        <div class="floating-icon fi-4">&#x1f680;</div>
       </div>
+    </div>
+
+    <!-- 波浪分割线 -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" fill="var(--bg-secondary)"/>
+      </svg>
     </div>
   </section>
 
@@ -72,12 +102,12 @@
     <div class="container">
       <div class="section-header">
         <div class="section-label">My Story</div>
-        <h2 class="section-title">零基础，也能玩转AI</h2>
+        <h2 class="section-title">零基础，也能<span class="text-gradient">玩转AI</span></h2>
         <p class="section-subtitle">从传统行业到AI应用师，我走过的每一步，都是你最好的参考</p>
       </div>
 
       <div class="timeline">
-        <div class="timeline-item">
+        <div class="timeline-item" data-animate="left">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-year">2023</div>
@@ -85,7 +115,7 @@
             <div class="timeline-desc">ChatGPT火了，但觉得跟自己没关系——"那不是程序员才玩的东西吗？"</div>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item" data-animate="right">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-year">2024</div>
@@ -93,7 +123,7 @@
             <div class="timeline-desc">零散地用了几次AI工具，问问问题、写写文案，觉得"也就那样"，没有深入。</div>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item" data-animate="left">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-year">2025</div>
@@ -101,7 +131,7 @@
             <div class="timeline-desc">开始深度使用AI工具，发现它不仅是聊天机器人——智能体、工作流、自动化……拥有了以前想都不敢想的能力。</div>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item" data-animate="right">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-year">2026</div>
@@ -112,9 +142,17 @@
       </div>
 
       <div class="about-quote">
-        <p>"我不是技术出身，我和你一样从零开始。<br>正因如此，我更知道零基础的人需要什么。"</p>
+        <div class="quote-mark">&ldquo;</div>
+        <p>我不是技术出身，我和你一样从零开始。<br>正因如此，我更知道零基础的人需要什么。</p>
         <div class="author">—— 元芷</div>
       </div>
+    </div>
+
+    <!-- 波浪分割线 -->
+    <div class="wave-divider wave-flip">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,60 C240,0 480,120 720,60 C960,0 1200,80 1440,40 L1440,120 L0,120 Z" fill="var(--bg-primary)"/>
+      </svg>
     </div>
   </section>
 
@@ -123,12 +161,19 @@
     <div class="container">
       <div class="section-header">
         <div class="section-label">Toolbox</div>
-        <h2 class="section-title">我掌握的AI工具</h2>
+        <h2 class="section-title">我掌握的<span class="text-gradient-coral">AI工具</span></h2>
         <p class="section-subtitle">每一个工具，我都用真实项目验证过</p>
       </div>
       <div class="tools-grid" id="toolsGrid">
         <!-- 由 JS 数据驱动渲染 -->
       </div>
+    </div>
+
+    <!-- 波浪分割线 -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,40 C180,100 540,0 720,60 C900,120 1260,20 1440,60 L1440,120 L0,120 Z" fill="var(--bg-secondary)"/>
+      </svg>
     </div>
   </section>
 
@@ -147,6 +192,12 @@
         <a href="cases.html" class="btn btn-outline">查看全部案例 &rarr;</a>
       </div>
     </div>
+
+    <div class="wave-divider wave-flip">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,80 C360,20 720,100 1080,40 C1260,10 1380,50 1440,60 L1440,120 L0,120 Z" fill="var(--bg-primary)"/>
+      </svg>
+    </div>
   </section>
 
   <!-- 培训服务 -->
@@ -154,12 +205,12 @@
     <div class="container">
       <div class="section-header">
         <div class="section-label">Services</div>
-        <h2 class="section-title">跟我学AI，从小白到实战</h2>
+        <h2 class="section-title">跟我学AI，从<span class="text-gradient">小白到实战</span></h2>
         <p class="section-subtitle">不讲黑话，不设门槛，用最短的路径帮你上手AI</p>
       </div>
 
       <div class="services-grid">
-        <div class="service-card personal">
+        <div class="service-card personal" data-animate="left">
           <div class="service-icon">&#x1f393;</div>
           <h3 class="service-title">零基础带教</h3>
           <p class="service-for">适合：零基础 / 想转型 / 想接AI私单的你</p>
@@ -170,10 +221,10 @@
             <li>实战项目带练（不是纸上谈兵）</li>
             <li>1对1答疑 + 学习社群</li>
           </ul>
-          <a href="#contact" class="btn btn-primary">立即咨询</a>
+          <a href="#contact" class="btn btn-primary"><span>立即咨询</span><div class="btn-glow"></div></a>
         </div>
 
-        <div class="service-card enterprise">
+        <div class="service-card enterprise" data-animate="right">
           <div class="service-icon">&#x1f3e2;</div>
           <h3 class="service-title">企业定制培训</h3>
           <p class="service-for">适合：企业团队 / 部门效率提升 / 内部AI转型</p>
@@ -192,49 +243,65 @@
       <div class="testimonials">
         <div class="testimonials-track" id="testimonialsTrack">
           <div class="testimonial-card">
-            <div class="testimonial-text">"跟着元芷老师学了2个月，从完全不懂到现在能独立搭建智能体，已经开始接单了！"</div>
+            <div class="testimonial-quote">&ldquo;</div>
+            <div class="testimonial-text">跟着元芷老师学了2个月，从完全不懂到现在能独立搭建智能体，已经开始接单了！</div>
             <div class="testimonial-author">—— 学员 小李，零基础转行</div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-text">"企业内训后，团队用AI工具做内容的效率提升了3倍，老板直接追加了第二期培训预算。"</div>
+            <div class="testimonial-quote">&ldquo;</div>
+            <div class="testimonial-text">企业内训后，团队用AI工具做内容的效率提升了3倍，老板直接追加了第二期培训预算。</div>
             <div class="testimonial-author">—— 某教育公司 运营总监</div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-text">"最喜欢的就是不讲黑话，每个步骤都说人话，跟着做就能出结果。"</div>
+            <div class="testimonial-quote">&ldquo;</div>
+            <div class="testimonial-text">最喜欢的就是不讲黑话，每个步骤都说人话，跟着做就能出结果。</div>
             <div class="testimonial-author">—— 学员 张姐，传统行业转型</div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-text">"之前报过别的课，全是术语听不懂。元芷的课真的是手把手带，小白也能跟上。"</div>
+            <div class="testimonial-quote">&ldquo;</div>
+            <div class="testimonial-text">之前报过别的课，全是术语听不懂。元芷的课真的是手把手带，小白也能跟上。</div>
             <div class="testimonial-author">—— 学员 王同学，大学生</div>
           </div>
           <!-- 复制一份用于无缝滚动 -->
           <div class="testimonial-card">
-            <div class="testimonial-text">"跟着元芷老师学了2个月，从完全不懂到现在能独立搭建智能体，已经开始接单了！"</div>
+            <div class="testimonial-quote">&ldquo;</div>
+            <div class="testimonial-text">跟着元芷老师学了2个月，从完全不懂到现在能独立搭建智能体，已经开始接单了！</div>
             <div class="testimonial-author">—— 学员 小李，零基础转行</div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-text">"企业内训后，团队用AI工具做内容的效率提升了3倍，老板直接追加了第二期培训预算。"</div>
+            <div class="testimonial-quote">&ldquo;</div>
+            <div class="testimonial-text">企业内训后，团队用AI工具做内容的效率提升了3倍，老板直接追加了第二期培训预算。</div>
             <div class="testimonial-author">—— 某教育公司 运营总监</div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-text">"最喜欢的就是不讲黑话，每个步骤都说人话，跟着做就能出结果。"</div>
+            <div class="testimonial-quote">&ldquo;</div>
+            <div class="testimonial-text">最喜欢的就是不讲黑话，每个步骤都说人话，跟着做就能出结果。</div>
             <div class="testimonial-author">—— 学员 张姐，传统行业转型</div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-text">"之前报过别的课，全是术语听不懂。元芷的课真的是手把手带，小白也能跟上。"</div>
+            <div class="testimonial-quote">&ldquo;</div>
+            <div class="testimonial-text">之前报过别的课，全是术语听不懂。元芷的课真的是手把手带，小白也能跟上。</div>
             <div class="testimonial-author">—— 学员 王同学，大学生</div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="wave-divider">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" fill="var(--bg-secondary)"/>
+      </svg>
     </div>
   </section>
 
   <!-- 联系我 -->
   <section class="section contact" id="contact">
     <div class="container">
-      <h2 class="contact-title">开始你的AI之旅</h2>
+      <h2 class="contact-title">开始你的<span class="text-gradient">AI之旅</span></h2>
       <p class="contact-subtitle">扫码添加微信，免费领取《AI工具入门指南》</p>
-      <img src="assets/images/qrcode.jpg" alt="微信二维码" class="contact-qr">
+      <div class="contact-qr-wrapper">
+        <img src="assets/images/qrcode.jpg" alt="微信二维码" class="contact-qr">
+      </div>
       <p class="contact-email">或发邮件联系我</p>
     </div>
   </section>
